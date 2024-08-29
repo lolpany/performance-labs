@@ -1,21 +1,18 @@
-import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLOutput;
-import java.util.*;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 class task4 {
 
     public static void main(String[] args) throws IOException {
-        Scanner inputScanner = new Scanner(System.in);
-        String numsFile = inputScanner.nextLine();
+        String numsFile = args[0];
         String[] numsParts = FileUtils.readFileToString(new File(numsFile), StandardCharsets.UTF_8).split("\\s+");
         SortedMap<Integer, Integer> numToCount = new TreeMap<>();
-        for (String numPart: numsParts) {
+        for (String numPart : numsParts) {
             int num = Integer.parseInt(numPart);
             int count = 0;
             if (numToCount.get(num) != null) {

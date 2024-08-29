@@ -2,17 +2,13 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLOutput;
-import java.util.Scanner;
 
 class task2 {
 
     public static void main(String[] args) throws IOException {
-        Scanner inputScanner = new Scanner(System.in);
-        String circleFile = inputScanner.nextLine();
-        String pointsFile = inputScanner.nextLine();
+        String circleFile = args[0];
+        String pointsFile = args[1];
         String circleFileContents = FileUtils.readFileToString(new File(circleFile), StandardCharsets.UTF_8);
         String[] circleParts = circleFileContents.split("\\s+");
         double circleX = Double.parseDouble(circleParts[0]);
